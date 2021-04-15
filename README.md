@@ -1,8 +1,31 @@
 # go-gearman
 
+The shardingkey is hashed to the same queue, each of which is bound to a worker.
+
 ![](design.jpg)
 
 ## Usage
+
+**init gearman**
+
+```go
+gm := gearman.NewGearman(workerNum, queueSize, SetIdleTimeout(1 * time.Minute), SetExceptionCall(func(error)))
+```
+
+**start/stop**
+
+```go
+gm.Start()
+defer gm.Stop()
+```
+
+**Submit**
+
+```go
+gm.Submit(shardingKey, func() error)
+```
+
+## Example
 
 ```go
 package main
