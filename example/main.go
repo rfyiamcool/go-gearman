@@ -1,10 +1,3 @@
-# go-gearman
-
-![](design.jpg)
-
-## Usage
-
-```go
 package main
 
 import (
@@ -35,4 +28,3 @@ func main() {
 	}
 	wg.Wait()
 }
-```
